@@ -22,6 +22,7 @@
 #               root GET    /                                                quizzes#index
 
 Rails.application.routes.draw do
+  devise_for :users
   resources :quizzes do
     resources :questions
     resources :quiz_submissions, only: [:show, :create], as: "submissions"

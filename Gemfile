@@ -38,3 +38,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "simple_form", "~> 5.2"
+gem "devise", "~> 4.9"
+gem "foreman", github: "ddollar/foreman"
