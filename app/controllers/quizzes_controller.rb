@@ -7,17 +7,17 @@ class QuizzesController < ApplicationController
   end
 
   # GET /quizzes/1
-  def show
-  end
+  def show; end
 
   # GET /quizzes/new
   def new
     @quiz = Quiz.new
+    # create the first question
+    @quiz.questions.build
   end
 
   # GET /quizzes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /quizzes
   def create
@@ -46,13 +46,18 @@ class QuizzesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_quiz
-      @quiz = Quiz.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def quiz_params
-      params.require(:quiz).permit(:title)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_quiz
+    @quiz = Quiz.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def quiz_params
+    params.require(:quiz).permit(
+      :title,
+      :image,
+      question_attributes: [:id, :_destroy, :content, :answer1, :answer2, :answer3, :answer4, :correct_answer, :image]
+    )
+  end
 end
