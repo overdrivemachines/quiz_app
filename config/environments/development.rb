@@ -67,4 +67,12 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  host = "localhost:3000"
+  config.action_mailer.default_url_options = { host:, protocol: 'http' }
+
+  # letter_opener gem configuration: https://github.com/ryanb/letter_opener
+  # Now any email will pop up in your browser instead of being sent.
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 end
