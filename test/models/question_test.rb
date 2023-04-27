@@ -21,9 +21,10 @@
 #
 #  quiz_id  (quiz_id => quizzes.id)
 #
-class Question < ApplicationRecord
-  belongs_to :quiz
-  has_one_attached :image
+require "test_helper"
 
-  validates :correct_answer, inclusion: { in: 1..4 }
+class QuestionTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end
